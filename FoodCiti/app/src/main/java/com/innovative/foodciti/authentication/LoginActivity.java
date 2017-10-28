@@ -21,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.innovative.foodciti.R;
 import com.innovative.foodciti.constant.AppConstant;
@@ -33,10 +34,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
+    private String refreshedToken, android_id, str_email, str_password;
 
-    private String refreshedToken, android_id, str_user_name, str_password;
-
-    private EditText et_username, et_password;
+    private EditText et_email, et_password;
     private Button btn_login;
     private ProgressBar progressbar;
 
@@ -48,13 +48,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        findIds();
-        init();
+        queue = Volley.newRequestQueue(getApplicationContext());
+
+        //findIds();
+        //init();
     }
 
     private void findIds() {
 
-        et_username = (EditText) findViewById(R.id.et_username);
+        et_email = (EditText) findViewById(R.id.et_email);
         et_password = (EditText) findViewById(R.id.et_password);
         btn_login = (Button) findViewById(R.id.btn_login);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
@@ -67,35 +69,36 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                str_user_name = et_username.getText().toString();
+                str_email = et_email.getText().toString();
                 str_password = et_password.getText().toString();
 
-                if(TextUtils.isEmpty(str_user_name)){
-                    et_username.setError("Username Required");
+                if (TextUtils.isEmpty(str_email)) {
+                    et_email.setError("Username Required");
                     return;
                 }
-                if(TextUtils.isEmpty(str_password)){
+                if (TextUtils.isEmpty(str_password)) {
                     et_password.setError("Password Required");
                     return;
                 }
-                loginRequest(str_user_name,str_password);
+                loginRequest(str_email, str_password);
             }
         });
 
     }
 
-    private void loginRequest(String str_user_name, String str_password) {
+    private void loginRequest(String str_email, String str_password) {
 
         refreshedToken = FirebaseInstanceId.getInstance().getToken();
         android_id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
         progressbar.setVisibility(View.VISIBLE);
-        map.put("username", str_user_name);
+        map.put("email", str_email);
         map.put("password", str_password);
-        map.put("deviceid", refreshedToken);
-        map.put("username", android_id);
+        map.put("devicetoken", refreshedToken);
+        map.put("deviceid", android_id);
 
-        loginResponse(AppConstant.BASE_URL + "/login", map);
+//        loginResponse(AppConstant.BASE_URL + "/lavisha.heliohost.org/foodciti/login.php", map);
+        loginResponse("http://lavisha.heliohost.org/foodciti/login.php", map);
     }
 
     private void loginResponse(String url, final HashMap<String, String> map) {
@@ -107,8 +110,21 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e("response----", response);
 
                 progressbar.setVisibility(View.GONE);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String jsonResponse = jsonObject.getString("response");
 
+                    JSONObject jsonObjectResponse = new JSONObject(jsonResponse);
+                    String result = jsonObjectResponse.getString("result");
 
+                    JSONObject resultJsonObject = new JSONObject(result);
+                    String status = resultJsonObject.getString("status");
+                    String message = resultJsonObject.getString("message");
+                    boolean isloggedIn = Boolean.parseBoolean(resultJsonObject.getString("isloggedIn"));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         }, new Response.ErrorListener() {

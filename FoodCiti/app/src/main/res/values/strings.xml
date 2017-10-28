@@ -7,4 +7,5 @@
     <string name="login">Login</string>
     <string name="keep_me_signed_in">Keep me signed in</string>
     <string name="forgotten_your_password">Forgotten your password?</string>
+    <string name="email">Email</string>
 </resources>

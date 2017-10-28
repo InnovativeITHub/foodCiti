@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
 import com.innovative.foodciti.authentication.LoginActivity;
 import com.innovative.foodciti.firebaseServices.AndroidFirebaseInstanceIdService;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    public static final int SPLASH_TIME_OUT= 3000;
+    public static final int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         startService(new Intent(SplashScreenActivity.this, AndroidFirebaseInstanceIdService.class));
-
         init();
     }
 
