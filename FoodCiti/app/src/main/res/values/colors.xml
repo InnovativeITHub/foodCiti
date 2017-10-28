@@ -6,6 +6,7 @@
 
     <color name="white">#ffffff</color>
     <color name="transparent">#99f</color>
+    <color name="black">#000000</color>
 
     <color name="orange_light">#FF6340</color>
     <color name="orange_medium">#EC5937</color>

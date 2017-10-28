@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import com.innovative.foodciti.authentication.LoginActivity;
+import com.innovative.foodciti.firebaseServices.AndroidFirebaseInstanceIdService;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -14,6 +15,13 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        startService(new Intent(SplashScreenActivity.this, AndroidFirebaseInstanceIdService.class));
+
+        init();
+    }
+
+    private void init() {
 
         new Handler().postDelayed(new Runnable() {
 
