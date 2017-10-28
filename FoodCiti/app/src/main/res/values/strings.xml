@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FoodCiti</string>
+    <string name="sign_in">Sign In</string>
+
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="keep_me_signed_in">Keep me signed in</string>
+    <string name="forgotten_your_password">Forgotten your password?</string>
+</resources>
