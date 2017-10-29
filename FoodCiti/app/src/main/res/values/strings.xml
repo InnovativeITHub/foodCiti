@@ -8,4 +8,20 @@
     <string name="keep_me_signed_in">Keep me signed in</string>
     <string name="forgotten_your_password">Forgotten your password?</string>
     <string name="email">Email</string>
+    <string name="discount_5">Discount(5)% :</string>
+    <string name="subtotal">Subtotal :</string>
+    <string name="delivery_charge">Delivery Charge :</string>
+    <string name="total">Total :</string>
+    <string name="your_money_status">Money status</string>
+    <string name="customer_details">Customer details :</string>
+    <string name="address">address</string>
+    <string name="delivery">Delivery</string>
+    <string name="tel">Tel :</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="order_number">Order number</string>
+    <string name="date">Date</string>
+    <string name="cash">Cash</string>
+    <string name="pin_number">Pin number</string>
+    <string name="city">City</string>
+    <string name="contact_number">Contact number</string>
 </resources>

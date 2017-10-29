@@ -6,7 +6,7 @@ package com.innovative.foodciti.constant;
 
 public class AppConstant {
 
-    public static final String BASE_URL= "";
-
+//    public static final String BASE_URL= "http://lavisha.heliohost.org/foodciti/";
+    public static final String BASE_URL = "http://foodciti.co.uk/api/";
 
 }

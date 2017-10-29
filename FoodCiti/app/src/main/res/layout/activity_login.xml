@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.innovative.foodciti.authentication.LoginActivity">
+    tools:context="com.innovative.foodciti.activities.LoginActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        tools:context="com.innovative.foodciti.authentication.LoginActivity">
+        tools:context="com.innovative.foodciti.activities.LoginActivity">
 
         <ImageView
+            android:id="@+id/iv_logo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:contentDescription="@null"
@@ -23,24 +25,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_logo"
+            android:layout_centerInParent="true"
             android:orientation="vertical"
             android:padding="16dp">
 
             <EditText
-                android:id="@+id/et_username"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/ed_round"
-                android:hint="@string/username"
-                android:inputType="textMultiLine"
+                android:drawableLeft="@drawable/ic_user"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="14sp"
-                android:gravity="center_vertical"
-                android:drawableLeft="@drawable/ic_user"
-                android:drawablePadding="6dp"/>
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/et_password"
@@ -48,15 +52,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/ed_round"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
                 android:hint="@string/password"
-                android:inputType="textMultiLine"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="14sp"
-                android:gravity="center_vertical"
-                android:drawableLeft="@drawable/ic_password"
-                android:drawablePadding="6dp" />
+                android:textSize="14sp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -70,14 +74,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_round"
-                android:inputType="textMultiLine"
                 android:text="@string/sign_in"
                 android:textColor="@color/white" />
-
 
 
         </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>

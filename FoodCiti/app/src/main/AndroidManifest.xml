@@ -5,12 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
-
         <service android:name=".firebaseServices.AndroidFirebaseMsgService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -22,16 +21,18 @@
             </intent-filter>
         </service>
 
-        <activity android:name="com.innovative.foodciti.SplashScreenActivity">
+        <activity android:name=".activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".authentication.LoginActivity"/>
+        <activity android:name=".activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activities.OrderSummaryActivity"></activity>
 
 
     </application>
+
 </manifest>
