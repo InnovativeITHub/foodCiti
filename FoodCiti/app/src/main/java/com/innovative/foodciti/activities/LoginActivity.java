@@ -129,6 +129,8 @@ public class LoginActivity extends AppCompatActivity {
                     et_email.setText("");
                     et_password.setText("");
 
+                    finish();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
