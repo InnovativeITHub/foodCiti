@@ -9,9 +9,12 @@
 
     <TextView
         android:id="@+id/tv_item_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/tv_item_price"
+        android:layout_toStartOf="@+id/tv_item_price"
         android:text="@string/discount_5"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/black"

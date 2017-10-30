@@ -119,6 +119,7 @@ public class OrderSummaryActivity extends AppCompatActivity {
 
     private void init() {
         rvItems.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        rvItems.setNestedScrollingEnabled(false);
         orderSummaryRequest();
     }
 
