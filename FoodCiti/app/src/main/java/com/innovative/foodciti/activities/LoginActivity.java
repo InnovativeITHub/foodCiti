@@ -126,10 +126,10 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString(SharedPrefernceValue.IS_LOGGED_IN, String.valueOf(isloggedIn));
                     editor.commit();
 
+                    Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+
                     et_email.setText("");
                     et_password.setText("");
-
-                    finish();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

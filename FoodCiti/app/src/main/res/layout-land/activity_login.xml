@@ -40,10 +40,10 @@
                 android:gravity="center_vertical"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:padding="8dp"
+                android:padding="18dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="14sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/et_password"
@@ -56,29 +56,30 @@
                 android:gravity="center_vertical"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:padding="8dp"
+                android:padding="18dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="14sp" />
+                android:textSize="24sp" />
 
             <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_marginBottom="20dp"
+                android:padding="8dp"
                 android:text="@string/keep_me_signed_in"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:background="@drawable/btn_round"
                 android:text="@string/sign_in"
+                android:textSize="24sp"
                 android:textColor="@color/white" />
 
 
         </LinearLayout>
-
-
     </RelativeLayout>
 </ScrollView>

@@ -119,7 +119,6 @@ public class OrderSummaryActivity extends AppCompatActivity {
 
     private void init() {
         rvItems.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        rvItems.setNestedScrollingEnabled(false);
         orderSummaryRequest();
     }
 
@@ -196,24 +195,19 @@ public class OrderSummaryActivity extends AppCompatActivity {
                         items.setItem(json.get("item").toString());
                         items.setPrice(json.get("price").toString());
 
-
                         JSONArray subItemArray = new JSONArray(json.get("subitem").toString());
 
-                        if (json.get("subitem").toString() != null || json.get("subitem").toString() != "" ||
-                                json.get("subitem").toString() != "null") {
+                        ArrayList<SubItem> subItemsList = new ArrayList<>();
+                        for (int j = 0; j < subItemArray.length(); j++) {
+                            JSONObject subItemJson = subItemArray.getJSONObject(j);
 
-                            ArrayList<SubItem> subItemsList = new ArrayList<>();
-                            for (int j = 0; j < subItemArray.length(); j++) {
-                                JSONObject subItemJson = subItemArray.getJSONObject(j);
+                            SubItem subItem = new SubItem();
+                            subItem.setSubitem(subItemJson.get("subitem").toString());
+                            subItem.setPrice(subItemJson.get("price").toString());
 
-                                SubItem subItem = new SubItem();
-                                subItem.setSubitem(subItemJson.get("subitem").toString());
-                                subItem.setPrice(subItemJson.get("price").toString());
-
-                                subItemsList.add(subItem);
-                            }
-                            items.setSubitem(subItemsList);
+                            subItemsList.add(subItem);
                         }
+                        items.setSubitem(subItemsList);
 
                         itemsList.add(items);
                         System.out.println("");
